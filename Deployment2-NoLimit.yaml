@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: no-limit-2
+spec:
+  selector:
+    matchLabels:
+      app: no-limit-2
+  template:
+    metadata:
+      labels:
+        app: no-limit-2
+    spec:
+      nodeName: multinode-m02
+      containers:
+      - name: no-limit-2
+        image: rminz/cpuload:v2
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"

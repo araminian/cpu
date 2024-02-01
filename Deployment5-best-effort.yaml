@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: best-effort-1
+spec:
+  selector:
+    matchLabels:
+      app: best-effort-1
+  template:
+    metadata:
+      labels:
+        app: best-effort-1
+    spec:
+      nodeName: multinode-m02
+      containers:
+      - name: best-effort-1
+        image: rminz/cpuload:v2

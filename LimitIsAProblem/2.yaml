@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p2
+spec:
+  selector:
+    matchLabels:
+      app: p2
+  template:
+    metadata:
+      labels:
+        app: p2
+    spec:
+      nodeName: multinode-m02
+      containers:
+      - name: p2
+        image: rminz/cpuload:v2
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "3800m"

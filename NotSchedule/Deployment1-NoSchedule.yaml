@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: no-schedule1
+spec:
+  selector:
+    matchLabels:
+      app: no-schedule1
+  template:
+    metadata:
+      labels:
+        app: no-schedule1
+    spec:
+      nodeName: multinode-m02
+      containers:
+      - name: no-schedule1
+        image: rminz/cpuload:v2
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "5000m"
